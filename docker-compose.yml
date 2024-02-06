@@ -1,0 +1,33 @@
+version: '3.8'
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: api
+    entrypoint: sh -c 'yarn install --frozen-lockfile && yarn start:dev'
+    depends_on:
+      - mongodb
+    networks:
+      - api-network
+    ports:
+      - ${PORT}:${PORT}
+    volumes:
+      - .:/app
+      - /app/node_modules
+
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    networks:
+      - api-network
+    ports:
+      - ${MONGODB_PORT}:${MONGODB_PORT}
+    volumes:
+      - mongodbdata:/data/db
+
+networks:
+  api-network:
+
+volumes:
+  mongodbdata:
