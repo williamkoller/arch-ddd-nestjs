@@ -13,5 +13,3 @@ RUN yarn cache clean \
 COPY . /app
 
 EXPOSE 3003
-
-ENTRYPOINT [ "yarn", "start:dev" ]
