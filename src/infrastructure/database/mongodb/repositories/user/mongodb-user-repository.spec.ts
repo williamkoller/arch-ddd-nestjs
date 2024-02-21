@@ -1,0 +1,1 @@
+describe('MongodbUserRepository Unit Test', () => {});
