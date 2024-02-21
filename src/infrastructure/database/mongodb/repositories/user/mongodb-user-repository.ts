@@ -1,5 +1,5 @@
 import { InjectModel } from '@nestjs/mongoose';
-import { UserRepositoryInterface } from 'src/data/protocols/db/user/user-repository.interface';
+import { UserRepositoryInterface } from '../../../../../data/protocols/db/user/user-repository.interface';
 import { UserModel } from '../../models/user/user.model';
 import { Model } from 'mongoose';
 import { User } from 'src/domain/user/user';
@@ -11,8 +11,7 @@ export class MongodbUserRepository implements UserRepositoryInterface {
   ) {}
 
   async create(data: User): Promise<UserModel> {
-    const user = new this.userCollection(data);
-    return user.save();
+    return await this.userCollection.create(data);
   }
 
   async find(): Promise<UserModel[]> {

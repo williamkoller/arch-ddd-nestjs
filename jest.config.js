@@ -6,6 +6,7 @@ module.exports = {
     '!<rootDir>/src/app.module.ts',
     '!<rootDir>/src/infrastructure/**/*.module.ts',
     '!<rootDir>/src/main/config/docs/*.ts',
+    '!<rootDir>/src/infrastructure/database/mongodb/models/**/**.model.ts',
   ],
   coverageDirectory: 'coverage',
   testEnvironment: 'node',
