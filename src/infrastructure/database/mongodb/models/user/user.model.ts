@@ -1,5 +1,4 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { randomUUID } from 'node:crypto';
 
 @Schema({
   collection: 'users',
@@ -8,7 +7,6 @@ import { randomUUID } from 'node:crypto';
 export class UserModel {
   @Prop({
     type: String,
-    default: () => randomUUID(),
   })
   _id!: string;
 
