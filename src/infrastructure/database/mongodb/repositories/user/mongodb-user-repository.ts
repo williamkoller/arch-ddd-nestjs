@@ -1,8 +1,8 @@
 import { InjectModel } from '@nestjs/mongoose';
-import { UserRepositoryInterface } from '../../../../../data/protocols/db/user/user-repository.interface';
-import { UserModel } from '../../models/user/user.model';
 import { Model } from 'mongoose';
 import { User } from 'src/domain/user/user';
+import { UserRepositoryInterface } from '../../../../../data/protocols/db/user/user-repository.interface';
+import { UserModel } from '../../models/user/user.model';
 
 export class MongodbUserRepository implements UserRepositoryInterface {
   constructor(
