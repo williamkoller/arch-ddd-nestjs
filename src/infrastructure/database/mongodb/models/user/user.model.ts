@@ -4,7 +4,6 @@ import { randomUUID } from 'crypto';
 @Schema({
   collection: 'users',
   timestamps: true,
-  _id: true,
 })
 export class UserModel {
   @Prop({
@@ -46,6 +45,10 @@ export class UserModel {
     type: Date,
   })
   updatedAt: Date;
+
+  get id(): string {
+    return this._id;
+  }
 }
 
 export const UserSchema = SchemaFactory.createForClass(UserModel);
